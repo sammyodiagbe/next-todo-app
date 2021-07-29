@@ -1,0 +1,98 @@
+// variables
+$bright-blue: hsl(220, 98%, 61%);
+$check-background: linear-gradient (hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+
+// light theme
+$very-light-gray: hsl(0, 0%, 98%);
+$very-light-grayish-blue: hsl(236, 33%, 92%);
+$light-grayish-blue: hsl(233, 11%, 61%);
+$dark-grayish-blue: hsl(236, 9%, 61%);
+$very-dark-grayish-blue: hsl(235, 19%, 35%);
+
+// dark theme
+$very-dark-blue: hsl(235, 21%, 11%);
+$very-dark-desaturated-blue: hsl(235, 24%, 19%);
+$light-grayish-blue2: hsl(234, 39%, 85%);
+$light-grayish-blue-hover: hsl(236, 33%, 92%);
+$dark-grayish-blue2: hsl(234, 11%, 52%);
+$very-dark-grayish-blue2: hsl(233, 14%, 35%);
+$very-dark-grayish-blue3: hsl(237, 14%, 26%);
+$border-radius: 5px;
+
+$default-input-and-todo-padding: 1.1em;
+$bottom-margin: 1em;
+div.container {
+  min-height: 100vh;
+  min-width: 100vw;
+  background: url(../public/assets/bg-mobile-light.jpg), #efefef;
+  background-repeat: no-repeat;
+  background-position-x: left;
+  padding: 1.3em;
+  padding-top: 2.5em;
+  div.head {
+    display: flex;
+    padding-bottom: 1.5em;
+    color: $very-light-gray;
+    align-items: center;
+    justify-content: space-between;
+    // img.toggleImage {
+    //   width: 20px;
+    // }
+
+    h2 {
+      letter-spacing: 0.5ch;
+    }
+  }
+
+  div.inputContainer {
+    background: #fff;
+    padding: $default-input-and-todo-padding;
+    margin-bottom: $bottom-margin;
+    border-radius: $border-radius;
+    input {
+      background: transparent;
+    }
+  }
+
+  div.todos {
+    background: #fff;
+    border-radius: $border-radius;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    div.bottom {
+      padding: $default-input-and-todo-padding;
+      display: flex;
+      justify-content: space-between;
+      p {
+        font-size: 0.8rem;
+        color: $light-grayish-blue;
+      }
+
+      button.clearCompleted {
+        color: $light-grayish-blue;
+        background: transparent;
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  div.filter {
+    margin-top: $bottom-margin;
+    background: #fff;
+    text-align: center;
+    padding: $default-input-and-todo-padding;
+    button {
+      background: transparent;
+      color: $dark-grayish-blue;
+      &:nth-child(2) {
+        margin: 0 1em;
+      }
+    }
+  }
+
+  p.dragAndDrop {
+    font-size: 0.8em;
+    margin-top: 3em;
+    text-align: center;
+    color: $light-grayish-blue;
+  }
+}

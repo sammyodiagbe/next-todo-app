@@ -1,0 +1,90 @@
+div.container {
+  min-height: 100vh;
+  min-width: 100vw;
+  background: url(../public/assets/bg-mobile-light.jpg), #efefef;
+  background-repeat: no-repeat;
+  background-position-x: left;
+  padding: 1.3em;
+  padding-top: 2.5em;
+}
+
+div.container div.head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-bottom: 1.5em;
+  color: #fafafa;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+div.container div.head h2 {
+  letter-spacing: 0.5ch;
+}
+
+div.container div.inputContainer {
+  background: #fff;
+  padding: 1.1em;
+  margin-bottom: 1em;
+  border-radius: 5px;
+}
+
+div.container div.inputContainer input {
+  background: transparent;
+}
+
+div.container div.todos {
+  background: #fff;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+div.container div.todos div.bottom {
+  padding: 1.1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+div.container div.todos div.bottom p {
+  font-size: 0.8rem;
+  color: #9193a6;
+}
+
+div.container div.todos div.bottom button.clearCompleted {
+  color: #9193a6;
+  background: transparent;
+  font-size: 0.8rem;
+}
+
+div.container div.filter {
+  margin-top: 1em;
+  background: #fff;
+  text-align: center;
+  padding: 1.1em;
+}
+
+div.container div.filter button {
+  background: transparent;
+  color: #9394a5;
+}
+
+div.container div.filter button:nth-child(2) {
+  margin: 0 1em;
+}
+
+div.container p.dragAndDrop {
+  font-size: 0.8em;
+  margin-top: 3em;
+  text-align: center;
+  color: #9193a6;
+}
+/*# sourceMappingURL=Home.module.css.map */

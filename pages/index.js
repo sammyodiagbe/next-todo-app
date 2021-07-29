@@ -15,14 +15,32 @@ export default function Home() {
       </Head>
       <div className={styles.todoContainer}>
         <div className={styles.head}>
-          <h1>Todo</h1>
+          <h2>TODO</h2>
           <Image
             src="/../public/assets/icon-moon.svg"
             alt="light background"
-            width={50}
-            height={50}
+            width={25}
+            height={25}
+            className={styles.toggleImage}
           />
         </div>
+        <div className={styles.inputContainer}>
+          <input type="text" placeholder="Create a new todo..." />
+        </div>
+        <div className={styles.todos}>
+          <div className={styles.atodo}></div>
+          <div className={styles.bottom}>
+            <p>5 items left</p>
+            <button className={styles.clearCompleted}>Clear Completed</button>
+          </div>
+        </div>
+
+        <div className={styles.filter}>
+          <button className={styles.filterButton}>All</button>
+          <button className={styles.filterButton}>Active</button>
+          <button className={styles.filterButton}>Completed</button>
+        </div>
+        <p className={styles.dragAndDrop}>Drag and drop to reorder list</p>
       </div>
     </div>
   );
