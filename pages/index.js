@@ -84,7 +84,7 @@ export default function Home() {
   return (
     <div className={`${styles.container} ${darkMode && styles.darkMode}`}>
       <Head>
-        <title>Create Next App</title>
+        <title>Todo</title>
         <meta
           name="description"
           content="Learning frontend with frontend mentor"
