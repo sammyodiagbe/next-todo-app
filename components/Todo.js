@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { useState } from "react";
 import todo from "../styles/todo.module.css";
+import closeImage from "../public/assets/icon-cross.svg";
 
 const Todo = ({ title, id, done, deleteTodo, setDone, pos }) => {
-  const [isDone, setIsDone] = useState(false);
   return (
     <div className={todo.todoContainer} draggable onDragStart={() => null}>
       <div className={todo.leftContainer}>
@@ -23,7 +23,7 @@ const Todo = ({ title, id, done, deleteTodo, setDone, pos }) => {
       </div>
 
       <Image
-        src="/../public/assets/icon-cross.svg"
+        src={closeImage}
         width={15}
         height={15}
         alt="remove todo"

@@ -3,6 +3,8 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Todo from "../components/Todo";
 import { useState } from "react";
+import sunImage from "../public/assets/icon-sun.svg";
+import moonImage from "../public/assets/icon-moon.svg";
 
 export default function Home() {
   const [todos, setTodos] = useState([]);
@@ -103,7 +105,7 @@ export default function Home() {
               }}
             >
               <Image
-                src="/../public/assets/icon-sun.svg"
+                src={sunImage}
                 alt="light background"
                 width={25}
                 height={25}
@@ -119,7 +121,7 @@ export default function Home() {
               }}
             >
               <Image
-                src="/../public/assets/icon-moon.svg"
+                src={moonImage}
                 alt="dark background"
                 width={25}
                 height={25}
