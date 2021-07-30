@@ -94,7 +94,7 @@ export default function Home() {
       <div className={`${styles.todoContainer} `}>
         <div className={styles.head}>
           <h2>TODO</h2>
-          {activateDarkMode ? (
+          {darkMode ? (
             <button
               className={styles.toggleButton}
               onClick={() => {
