@@ -31,9 +31,15 @@ div.container div.inputContainer {
   padding: 1.1em;
   margin-bottom: 1em;
   border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 div.container div.inputContainer input {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   background: transparent;
 }
 
@@ -42,6 +48,19 @@ div.container div.todos {
   border-radius: 5px;
   -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
           box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+div.container div.todos div.tContainer {
+  min-height: 200px;
+}
+
+div.container div.todos p.noTodos {
+  padding: 1.1em;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #9394a5;
+  width: 15ch;
+  margin: 0 auto;
 }
 
 div.container div.todos div.bottom {
@@ -55,14 +74,15 @@ div.container div.todos div.bottom {
 }
 
 div.container div.todos div.bottom p {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   color: #9193a6;
 }
 
 div.container div.todos div.bottom button.clearCompleted {
   color: #9193a6;
   background: transparent;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
+  cursor: pointer;
 }
 
 div.container div.filter {
@@ -75,10 +95,15 @@ div.container div.filter {
 div.container div.filter button {
   background: transparent;
   color: #9394a5;
+  font-weight: 700;
 }
 
 div.container div.filter button:nth-child(2) {
   margin: 0 1em;
+}
+
+div.container div.filter button.active {
+  color: #3a7bfd;
 }
 
 div.container p.dragAndDrop {

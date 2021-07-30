@@ -1,0 +1,65 @@
+$default-input-and-todo-padding: 1.1em;
+$dark-grayish-blue: hsl(236, 9%, 61%);
+$light-grayish-blue2: hsl(234, 39%, 85%);
+$check-background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+div.todoContainer {
+  display: flex;
+  padding: $default-input-and-todo-padding 0.8em;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  justify-content: space-between;
+
+  div.leftContainer {
+    display: flex;
+    align-items: center;
+    label {
+      display: flex;
+      align-items: center;
+      input {
+        appearance: none;
+
+        &:checked + span.circle {
+          &::after {
+            display: block;
+          }
+        }
+      }
+      span.circle {
+        height: 20px;
+        width: 20px;
+        border-radius: 20px;
+        border: 1px solid $light-grayish-blue2;
+        position: relative;
+
+        &:after {
+          content: " ";
+          height: 22px;
+          width: 22px;
+          border-radius: 22px;
+          position: absolute;
+          display: none;
+          top: -2px;
+          left: -2px;
+          background: $check-background;
+          background: url(../public/assets/icon-check.svg), $check-background;
+          background-repeat: no-repeat;
+          background-position: center;
+          z-index: 10;
+        }
+      }
+    }
+  }
+  img.closeimage {
+    display: block;
+    margin-left: auto;
+  }
+  p.text {
+    font-size: 0.7rem;
+    color: $dark-grayish-blue;
+    margin-left: $default-input-and-todo-padding;
+
+    &.done {
+      text-decoration: line-through;
+    }
+  }
+}

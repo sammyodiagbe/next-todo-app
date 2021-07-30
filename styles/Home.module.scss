@@ -49,7 +49,9 @@ div.container {
     padding: $default-input-and-todo-padding;
     margin-bottom: $bottom-margin;
     border-radius: $border-radius;
+    display: flex;
     input {
+      flex: 1;
       background: transparent;
     }
   }
@@ -58,19 +60,32 @@ div.container {
     background: #fff;
     border-radius: $border-radius;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    div.tContainer {
+      min-height: 200px;
+    }
+
+    p.noTodos {
+      padding: $default-input-and-todo-padding;
+      text-align: center;
+      font-size: 0.8rem;
+      color: $dark-grayish-blue;
+      width: 15ch;
+      margin: 0 auto;
+    }
     div.bottom {
       padding: $default-input-and-todo-padding;
       display: flex;
       justify-content: space-between;
       p {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
         color: $light-grayish-blue;
       }
 
       button.clearCompleted {
         color: $light-grayish-blue;
         background: transparent;
-        font-size: 0.8rem;
+        font-size: 0.7rem;
+        cursor: pointer;
       }
     }
   }
@@ -83,8 +98,13 @@ div.container {
     button {
       background: transparent;
       color: $dark-grayish-blue;
+      font-weight: 700;
       &:nth-child(2) {
         margin: 0 1em;
+      }
+
+      &.active {
+        color: $bright-blue;
       }
     }
   }
