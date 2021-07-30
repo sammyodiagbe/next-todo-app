@@ -6,7 +6,7 @@ div.todoContainer {
   display: flex;
   padding: $default-input-and-todo-padding 0.8em;
   align-items: center;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid $dark-grayish-blue;
   justify-content: space-between;
 
   div.leftContainer {

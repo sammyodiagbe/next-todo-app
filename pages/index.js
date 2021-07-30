@@ -6,7 +6,12 @@ import { useState } from "react";
 
 export default function Home() {
   const [todos, setTodos] = useState([]);
+  const [tempTodos, setTempTodos] = useState([]);
+  const [activeTodos, setActiveTodos] = useState([]);
+  const [completedTodos, setCompletedTodos] = useState([]);
   const [todoTitle, setTodoTitle] = useState("");
+  const [activeFilterCode, setActiveFilterCode] = useState(1);
+  const [darkMode, activateDarkMode] = useState(false);
 
   const addTodo = (event) => {
     console.log("working");
@@ -18,12 +23,14 @@ export default function Home() {
     let newtodos = todos;
     newtodos.unshift(data);
     setTodos(newtodos);
+    setTempTodos(newtodos);
     setTodoTitle("");
   };
 
   const deleteTodo = (id) => {
     const newTodos = [...todos.filter((todo) => todo.id !== id)];
     setTodos(newTodos);
+    setTempTodos(newTodos);
   };
 
   const setDone = (id, done) => {
@@ -36,14 +43,46 @@ export default function Home() {
     const newArr = [...todos];
     newArr[pos] = target;
     setTodos(newArr);
+    setTempTodos(newArr);
   };
 
   const clearCompletedTasks = () => {
     const filteredArray = todos.filter((todo) => !todo.done);
     setTodos(filteredArray);
+    setTempTodos(filteredArray);
+  };
+
+  const filterTodo = (e) => {
+    const { filter } = e.target.dataset;
+
+    switch (filter) {
+      case "all":
+        setTodos(tempTodos);
+        setActiveFilterCode(1);
+        break;
+      case "active":
+        console.log(tempTodos);
+        const filterTodo = [...tempTodos].filter((todo) => todo.done !== true);
+        if (filterTodo.length !== 0) {
+          setTodos(filterTodo);
+        }
+        setActiveFilterCode(2);
+        break;
+      case "completed":
+        const filterCompletedTodo = [...tempTodos].filter(
+          (todo) => todo.done === true
+        );
+        if (filterCompletedTodo.length !== 0) {
+          setTodos(filterCompletedTodo);
+        }
+        setActiveFilterCode(3);
+        break;
+      default:
+        break;
+    }
   };
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${darkMode && styles.darkMode}`}>
       <Head>
         <title>Create Next App</title>
         <meta
@@ -52,16 +91,40 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className={styles.todoContainer}>
+      <div className={`${styles.todoContainer} `}>
         <div className={styles.head}>
           <h2>TODO</h2>
-          <Image
-            src="/../public/assets/icon-moon.svg"
-            alt="light background"
-            width={25}
-            height={25}
-            className={styles.toggleImage}
-          />
+          {activateDarkMode ? (
+            <button
+              className={styles.toggleButton}
+              onClick={() => {
+                activateDarkMode(true);
+              }}
+            >
+              <Image
+                src="/../public/assets/icon-moon.svg"
+                alt="light background"
+                width={25}
+                height={25}
+                className={styles.toggleImage}
+              />
+            </button>
+          ) : (
+            <button
+              className={styles.toggleButton}
+              onClick={() => {
+                activateDarkMode(false);
+              }}
+            >
+              <Image
+                src="/../public/assets/icon-sun.svg"
+                alt="dark background"
+                width={25}
+                height={25}
+                className={styles.toggleImage}
+              />
+            </button>
+          )}
         </div>
         <div className={styles.inputContainer}>
           <form onSubmit={addTodo}>
@@ -108,11 +171,33 @@ export default function Home() {
         </div>
 
         <div className={styles.filter}>
-          <button className={`${styles.filterButton} ${styles.active}`}>
+          <button
+            className={`${styles.filterButton} ${
+              activeFilterCode === 1 && styles.active
+            }`}
+            data-filter="all"
+            onClick={filterTodo}
+          >
             All
           </button>
-          <button className={styles.filterButton}>Active</button>
-          <button className={styles.filterButton}>Completed</button>
+          <button
+            className={`${styles.filterButton} ${
+              activeFilterCode === 2 && styles.active
+            }`}
+            data-filter="active"
+            onClick={filterTodo}
+          >
+            Active
+          </button>
+          <button
+            className={`${styles.filterButton} ${
+              activeFilterCode === 3 && styles.active
+            }`}
+            data-filter="completed"
+            onClick={filterTodo}
+          >
+            Completed
+          </button>
         </div>
         <p className={styles.dragAndDrop}>Drag and drop to reorder list</p>
       </div>

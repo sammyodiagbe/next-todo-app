@@ -29,6 +29,10 @@ div.container {
   background-position-x: left;
   padding: 1.3em;
   padding-top: 2.5em;
+  transition: 1s;
+  //   dark mode start
+
+  //   dark mode end
   div.head {
     display: flex;
     padding-bottom: 1.5em;
@@ -38,7 +42,9 @@ div.container {
     // img.toggleImage {
     //   width: 20px;
     // }
-
+    button.toggleButton {
+      background: transparent;
+    }
     h2 {
       letter-spacing: 0.5ch;
     }
@@ -114,5 +120,42 @@ div.container {
     margin-top: 3em;
     text-align: center;
     color: $light-grayish-blue;
+  }
+
+  &.darkMode {
+    background: url(../public/assets/bg-mobile-dark.jpg), $very-dark-blue;
+    background-repeat: no-repeat;
+    background-position-x: left;
+    div.inputContainer {
+      background: $very-dark-desaturated-blue;
+
+      input {
+        color: #fff;
+      }
+    }
+
+    div.todos {
+      background: $very-dark-desaturated-blue;
+    }
+
+    div.filter {
+      background: $very-dark-desaturated-blue;
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  div.container {
+    background: url(../public/assets/bg-desktop-light.jpg), #efefef;
+    background-repeat: no-repeat;
+    padding-top: 6em;
+    &.darkMode {
+      background: url(../public/assets/bg-desktop-dark.jpg), $very-dark-blue;
+      background-repeat: no-repeat;
+    }
+    div.todoContainer {
+      width: 40%;
+      margin: 0 auto;
+    }
   }
 }

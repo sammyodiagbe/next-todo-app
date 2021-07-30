@@ -6,6 +6,8 @@ div.container {
   background-position-x: left;
   padding: 1.3em;
   padding-top: 2.5em;
+  -webkit-transition: 1s;
+  transition: 1s;
 }
 
 div.container div.head {
@@ -20,6 +22,10 @@ div.container div.head {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+div.container div.head button.toggleButton {
+  background: transparent;
 }
 
 div.container div.head h2 {
@@ -111,5 +117,43 @@ div.container p.dragAndDrop {
   margin-top: 3em;
   text-align: center;
   color: #9193a6;
+}
+
+div.container.darkMode {
+  background: url(../public/assets/bg-mobile-dark.jpg), #161722;
+  background-repeat: no-repeat;
+  background-position-x: left;
+}
+
+div.container.darkMode div.inputContainer {
+  background: #25273c;
+}
+
+div.container.darkMode div.inputContainer input {
+  color: #fff;
+}
+
+div.container.darkMode div.todos {
+  background: #25273c;
+}
+
+div.container.darkMode div.filter {
+  background: #25273c;
+}
+
+@media screen and (min-width: 1000px) {
+  div.container {
+    background: url(../public/assets/bg-desktop-light.jpg), #efefef;
+    background-repeat: no-repeat;
+    padding-top: 6em;
+  }
+  div.container.darkMode {
+    background: url(../public/assets/bg-desktop-dark.jpg), #161722;
+    background-repeat: no-repeat;
+  }
+  div.container div.todoContainer {
+    width: 40%;
+    margin: 0 auto;
+  }
 }
 /*# sourceMappingURL=Home.module.css.map */
