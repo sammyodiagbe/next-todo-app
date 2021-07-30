@@ -17,7 +17,6 @@ export default function Home({ todos: todosData }) {
 
   useEffect(() => {
     let todos = getTodos();
-    console.log(todos);
     setTodos(todos);
   }, []);
 
@@ -26,9 +25,7 @@ export default function Home({ todos: todosData }) {
     try {
       todos = JSON.parse(localStorage.getItem("todos"));
       if (todos && todos.length) return todos;
-    } catch (err) {
-      console.log("Something went wrong, ", err);
-    }
+    } catch (err) {}
     return [];
   };
   const addTodo = (event) => {
