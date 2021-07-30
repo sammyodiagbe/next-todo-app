@@ -52,13 +52,19 @@ div.container {
 
   div.inputContainer {
     background: #fff;
-    padding: $default-input-and-todo-padding;
+
     margin-bottom: $bottom-margin;
     border-radius: $border-radius;
     display: flex;
-    input {
+    form {
       flex: 1;
-      background: transparent;
+      input {
+        width: 100%;
+        display: block;
+        background: transparent;
+        padding: 1.3em $default-input-and-todo-padding;
+        font-size: 0.8rem;
+      }
     }
   }
 
@@ -83,7 +89,8 @@ div.container {
       display: flex;
       justify-content: space-between;
       p {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
+        padding-right: $default-input-and-todo-padding;
         color: $light-grayish-blue;
       }
 

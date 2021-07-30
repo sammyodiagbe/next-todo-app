@@ -56,7 +56,7 @@ div.todoContainer {
   p.text {
     font-size: 0.7rem;
     color: $dark-grayish-blue;
-    margin-left: $default-input-and-todo-padding;
+    margin: 0 $default-input-and-todo-padding;
 
     &.done {
       text-decoration: line-through;

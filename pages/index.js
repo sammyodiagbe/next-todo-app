@@ -98,11 +98,12 @@ export default function Home() {
             <button
               className={styles.toggleButton}
               onClick={() => {
-                activateDarkMode(true);
+                console.log("hello");
+                activateDarkMode(false);
               }}
             >
               <Image
-                src="/../public/assets/icon-moon.svg"
+                src="/../public/assets/icon-sun.svg"
                 alt="light background"
                 width={25}
                 height={25}
@@ -113,11 +114,12 @@ export default function Home() {
             <button
               className={styles.toggleButton}
               onClick={() => {
-                activateDarkMode(false);
+                console.log("hello");
+                activateDarkMode(true);
               }}
             >
               <Image
-                src="/../public/assets/icon-sun.svg"
+                src="/../public/assets/icon-moon.svg"
                 alt="dark background"
                 width={25}
                 height={25}

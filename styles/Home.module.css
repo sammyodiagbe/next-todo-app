@@ -34,7 +34,6 @@ div.container div.head h2 {
 
 div.container div.inputContainer {
   background: #fff;
-  padding: 1.1em;
   margin-bottom: 1em;
   border-radius: 5px;
   display: -webkit-box;
@@ -42,11 +41,18 @@ div.container div.inputContainer {
   display: flex;
 }
 
-div.container div.inputContainer input {
+div.container div.inputContainer form {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+}
+
+div.container div.inputContainer form input {
+  width: 100%;
+  display: block;
   background: transparent;
+  padding: 1.3em 1.1em;
+  font-size: 0.8rem;
 }
 
 div.container div.todos {
@@ -80,7 +86,8 @@ div.container div.todos div.bottom {
 }
 
 div.container div.todos div.bottom p {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
+  padding-right: 1.1em;
   color: #9193a6;
 }
 

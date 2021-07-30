@@ -74,7 +74,7 @@ div.todoContainer img.closeimage {
 div.todoContainer p.text {
   font-size: 0.7rem;
   color: #9394a5;
-  margin-left: 1.1em;
+  margin: 0 1.1em;
 }
 
 div.todoContainer p.text.done {
