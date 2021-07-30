@@ -2,11 +2,11 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Todo from "../components/Todo";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import sunImage from "../public/assets/icon-sun.svg";
 import moonImage from "../public/assets/icon-moon.svg";
 
-export default function Home() {
+export default function Home({ todos: todosData }) {
   const [todos, setTodos] = useState([]);
   const [tempTodos, setTempTodos] = useState([]);
   const [activeTodos, setActiveTodos] = useState([]);
@@ -15,6 +15,22 @@ export default function Home() {
   const [activeFilterCode, setActiveFilterCode] = useState(1);
   const [darkMode, activateDarkMode] = useState(false);
 
+  useEffect(() => {
+    let todos = getTodos();
+    console.log(todos);
+    setTodos(todos);
+  }, []);
+
+  const getTodos = () => {
+    let todos;
+    try {
+      todos = JSON.parse(localStorage.getItem("todos"));
+      if (todos && todos.length) return todos;
+    } catch (err) {
+      console.log("Something went wrong, ", err);
+    }
+    return [];
+  };
   const addTodo = (event) => {
     console.log("working");
     event.preventDefault();
@@ -27,12 +43,14 @@ export default function Home() {
     setTodos(newtodos);
     setTempTodos(newtodos);
     setTodoTitle("");
+    storeTodosData(newtodos);
   };
 
   const deleteTodo = (id) => {
     const newTodos = [...todos.filter((todo) => todo.id !== id)];
     setTodos(newTodos);
     setTempTodos(newTodos);
+    storeTodosData(newTodos);
   };
 
   const setDone = (id, done) => {
@@ -46,12 +64,14 @@ export default function Home() {
     newArr[pos] = target;
     setTodos(newArr);
     setTempTodos(newArr);
+    storeTodosData(newArr);
   };
 
   const clearCompletedTasks = () => {
     const filteredArray = todos.filter((todo) => !todo.done);
     setTodos(filteredArray);
     setTempTodos(filteredArray);
+    storeTodosData(filteredArray);
   };
 
   const filterTodo = (e) => {
@@ -83,6 +103,15 @@ export default function Home() {
         break;
     }
   };
+
+  const storeTodosData = async (todos) => {
+    try {
+      localStorage.setItem("todos", JSON.stringify(todos));
+    } catch (err) {
+      console.log("something went wrong, ", err);
+    }
+  };
+
   return (
     <div className={`${styles.container} ${darkMode && styles.darkMode}`}>
       <Head>
@@ -208,3 +237,15 @@ export default function Home() {
     </div>
   );
 }
+
+// export async function getStaticProps() {
+//   let todos;
+//   try {
+//     todos = getTodos();
+//   } catch (err) {
+//     console.log("Something went wrong, ", err);
+//   }
+//   return {
+//     props: { todos },
+//   };
+// }
